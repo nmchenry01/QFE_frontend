@@ -230,7 +230,7 @@
 
                     // Will need to change when put on local server
                     // Make AJAX/HTTP request
-                    $http.get("http://192.168.244.89:8080/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
+                    $http.get("http://flaskbackend-nmchenry.cloudapps.unc.edu/" + selectedAsset + "/" + convert_date(fromDate) + "/" + convert_date(toDate))
                         .then(on_complete, on_error);
                 }
             };
