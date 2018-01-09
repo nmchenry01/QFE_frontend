@@ -303,14 +303,14 @@
                     Daily Autocorrelation Data Array
                 */
                 var json_data4 = JSON.parse(assetObject.data.daily_autocorrelation_data);
-                var daily_autocorr = [];
-                var daily_autocorrNumbers = [];
+
                 var daily_lag = [];
+                var daily_autocorr = [];
                 for (var key in json_data4) {
-                    if (!isNaN(key)) {
-                        daily_autocorr.push(parseFloat((parseFloat(key).toFixed(3))));
+                    if (!isNaN(json_data4[key])) {
+                        daily_autocorr.push(parseFloat((parseFloat(json_data4[key]).toFixed(3))));
                     }
-                    daily_lag.push(json_data4[key]);
+                    daily_lag.push(key);
                 }
 
                 //Pops the last value if erroneous
@@ -323,13 +323,12 @@
                 */
                 var json_data5 = JSON.parse(assetObject.data.weekly_autocorrelation_data);
                 var weekly_autocorr = [];
-                var weekly_autocorrNumbers = [];
                 var weekly_lag = [];
                 for (var key in json_data5) {
-                    if (!isNaN(key)) {
-                        weekly_autocorr.push(parseFloat((parseFloat(key).toFixed(5))));
+                    if (!isNaN(json_data5[key])) {
+                        weekly_autocorr.push(parseFloat((parseFloat(json_data5[key]).toFixed(5))));
                     }
-                    weekly_lag.push(json_data5[key]);
+                    weekly_lag.push(key);
                 }
 
                 //Pops the last value if erroneous
@@ -342,13 +341,12 @@
                 */
                 var json_data6 = JSON.parse(assetObject.data.monthly_autocorrelation_data);
                 var monthly_autocorr = [];
-                var monthly_autocorrNumbers = [];
                 var monthly_lag = [];
                 for (var key in json_data6) {
-                    if (!isNaN(key)) {
-                        monthly_autocorr.push(parseFloat((parseFloat(key).toFixed(5))));
+                    if (!isNaN(json_data6[key])) {
+                        monthly_autocorr.push(parseFloat((parseFloat(json_data6[key]).toFixed(5))));
                     }
-                    monthly_lag.push(json_data6[key]);
+                    monthly_lag.push(key);
                 }
 
                 //Pops the last value if erroneous
