@@ -110,25 +110,25 @@
                 var monthly_average_return = (parseFloat(data.monthly_average_return) * 100).toFixed(2) + '%';
                 var daily_kurtosis = data.daily_kurtosis;
                 var weekly_kurtosis = data.weekly_kurtosis;
-                var monthly_kurtosis = data.monthly_kurtosis;                
+                var monthly_kurtosis = data.monthly_kurtosis;
                 var daily_skewness = data.daily_skewness;
                 var weekly_skewness = data.weekly_skewness;
-                var monthly_skewness = data.monthly_skewness;                
+                var monthly_skewness = data.monthly_skewness;
                 var daily_standard_deviation = data.daily_standard_deviation;
                 var weekly_standard_deviation = data.weekly_standard_deviation;
-                var monthly_standard_deviation = data.monthly_standard_deviation;                
+                var monthly_standard_deviation = data.monthly_standard_deviation;
                 var maximum_return = (parseFloat(data.maximum_return) * 100).toFixed(2) + '%';
                 var weekly_maximum_return = (parseFloat(data.weekly_maximum_return) * 100).toFixed(2) + '%';
-                var monthly_maximum_return = (parseFloat(data.monthly_maximum_return) * 100).toFixed(2) + '%';     
+                var monthly_maximum_return = (parseFloat(data.monthly_maximum_return) * 100).toFixed(2) + '%';
                 var minimum_return = (parseFloat(data.minimum_return) * 100).toFixed(2) + '%';
                 var weekly_minimum_return = (parseFloat(data.weekly_minimum_return) * 100).toFixed(2) + '%';
                 var monthly_minimum_return = (parseFloat(data.monthly_minimum_return) * 100).toFixed(2) + '%';
                 var quartile_05 = (parseFloat(data.quartile_05) * 100).toFixed(2) + '%';
                 var weekly_quartile_05 = (parseFloat(data.weekly_quartile_05) * 100).toFixed(2) + '%';
-                var monthly_quartile_05 = (parseFloat(data.monthly_quartile_05) * 100).toFixed(2) + '%';             
+                var monthly_quartile_05 = (parseFloat(data.monthly_quartile_05) * 100).toFixed(2) + '%';
                 var quartile_25 = (parseFloat(data.quartile_25) * 100).toFixed(2) + '%';
                 var weekly_quartile_25 = (parseFloat(data.weekly_quartile_25) * 100).toFixed(2) + '%';
-                var monthly_quartile_25 = (parseFloat(data.monthly_quartile_25) * 100).toFixed(2) + '%';             
+                var monthly_quartile_25 = (parseFloat(data.monthly_quartile_25) * 100).toFixed(2) + '%';
                 var quartile_50 = (parseFloat(data.quartile_50) * 100).toFixed(2) + '%';
                 var weekly_quartile_50 = (parseFloat(data.weekly_quartile_50) * 100).toFixed(2) + '%';
                 var monthly_quartile_50 = (parseFloat(data.monthly_quartile_50) * 100).toFixed(2) + '%';
@@ -150,37 +150,37 @@
                     monthly_cumulative_returns: monthly_cumulative_returns,
                     daily_average_return: daily_average_return,
                     weekly_average_return: weekly_average_return,
-                    monthly_average_return: monthly_average_return,                    
+                    monthly_average_return: monthly_average_return,
                     daily_kurtosis: daily_kurtosis,
                     weekly_kurtosis: weekly_kurtosis,
-                    monthly_kurtosis: monthly_kurtosis,                    
+                    monthly_kurtosis: monthly_kurtosis,
                     daily_skewness: daily_skewness,
                     weekly_skewness: weekly_skewness,
-                    monthly_skewness: monthly_skewness,                    
+                    monthly_skewness: monthly_skewness,
                     daily_standard_deviation: daily_standard_deviation,
                     weekly_standard_deviation: weekly_standard_deviation,
-                    monthly_standard_deviation: monthly_standard_deviation,                    
+                    monthly_standard_deviation: monthly_standard_deviation,
                     maximum_return: maximum_return,
                     weekly_maximum_return: weekly_maximum_return,
-                    monthly_maximum_return: monthly_maximum_return,                    
+                    monthly_maximum_return: monthly_maximum_return,
                     minimum_return: minimum_return,
                     weekly_minimum_return: weekly_minimum_return,
-                    monthly_minimum_return: monthly_minimum_return,                    
+                    monthly_minimum_return: monthly_minimum_return,
                     quartile_05: quartile_05,
                     weekly_quartile_05: weekly_quartile_05,
-                    monthly_quartile_05: monthly_quartile_05,                    
+                    monthly_quartile_05: monthly_quartile_05,
                     quartile_25: quartile_25,
                     weekly_quartile_25: weekly_quartile_25,
-                    monthly_quartile_25: monthly_quartile_25,                    
+                    monthly_quartile_25: monthly_quartile_25,
                     quartile_50: quartile_50,
                     weekly_quartile_50: weekly_quartile_50,
-                    monthly_quartile_50: monthly_quartile_50,                    
+                    monthly_quartile_50: monthly_quartile_50,
                     quartile_75: quartile_75,
                     weekly_quartile_75: weekly_quartile_75,
-                    monthly_quartile_75: monthly_quartile_75,                    
+                    monthly_quartile_75: monthly_quartile_75,
                     quartile_95: quartile_95,
                     weekly_quartile_95: weekly_quartile_95,
-                    monthly_quartile_95: monthly_quartile_95                    
+                    monthly_quartile_95: monthly_quartile_95
                 }
                 return json_to_return;
             }
@@ -243,33 +243,60 @@
                  */
                 var json_data = JSON.parse(assetObject.data.daily_histogram_data);
 
+                //Sorting the keys of the json object to ensure order 
+                var daily_keys = [];
+                for (var key in json_data) {
+                    daily_keys.push(key);
+                }
+                daily_keys.sort(function (a, b) {
+                    return a - b;
+                });
+
                 var daily_bins = [];
                 var daily_count = [];
-                for (var key in json_data) {
-                    daily_bins.push(((parseFloat(key) * 100).toFixed(1)) + '%');
-                    daily_count.push(json_data[key]);
+                for (var key in daily_keys) {
+                    daily_bins.push(((parseFloat(daily_keys[key]) * 100).toFixed(1)) + '%');
+                    daily_count.push(json_data[daily_keys[key]]);
                 }
                 /*
                  * Weekly Histogram Data Array
                  */
                 var json_data2 = JSON.parse(assetObject.data.weekly_histogram_data);
 
+                //Sorting the keys of the json object to ensure order
+                var weekly_keys = [];
+                for (var key in json_data2) {
+                    weekly_keys.push(key);
+                }
+                weekly_keys.sort(function (a, b) {
+                    return a - b;
+                });
+
                 var weekly_bins = [];
                 var weekly_count = [];
-                for (var key in json_data2) {
-                    weekly_bins.push(((parseFloat(key) * 100).toFixed(1)) + '%');
-                    weekly_count.push(json_data2[key]);
+                for (var key in weekly_keys) {
+                    weekly_bins.push(((parseFloat(weekly_keys[key]) * 100).toFixed(1)) + '%');
+                    weekly_count.push(json_data2[weekly_keys[key]]);
                 }
                 /*
                  * Monthly Histogram Data Array
                  */
                 var json_data3 = JSON.parse(assetObject.data.monthly_histogram_data);
 
+                //Sorting the keys of the json object to ensure order
+                var monthly_keys = [];
+                for (var key in json_data3) {
+                    monthly_keys.push(key);
+                }
+                monthly_keys.sort(function (a, b) {
+                    return a - b;
+                });
+
                 var monthly_bins = [];
                 var monthly_count = [];
-                for (var key in json_data3) {
-                    monthly_bins.push(((parseFloat(key) * 100).toFixed(1)) + '%');
-                    monthly_count.push(json_data3[key]);
+                for (var key in monthly_keys) {
+                    monthly_bins.push(((parseFloat(monthly_keys[key]) * 100).toFixed(1)) + '%');
+                    monthly_count.push(json_data3[monthly_keys[key]]);
                 }
 
                 /*
@@ -352,7 +379,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: "Daily Returns",  
+                        name: "Daily Returns",
                         showInLegend: false,
                         data: daily_count
                     }]
@@ -380,7 +407,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: "Monthly Returns",  
+                        name: "Monthly Returns",
                         showInLegend: false,
                         data: monthly_count
                     }]
@@ -408,7 +435,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: "Weekly Returns",                        
+                        name: "Weekly Returns",
                         showInLegend: false,
                         data: weekly_count
                     }]
@@ -439,7 +466,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: "Daily Autocorrelation",                        
+                        name: "Daily Autocorrelation",
                         showInLegend: false,
                         data: daily_autocorr
                     }]
@@ -470,7 +497,7 @@
                         enabled: false
                     },
                     series: [{
-                        name: "Weekly Autocorrelation",                        
+                        name: "Weekly Autocorrelation",
                         showInLegend: false,
                         data: weekly_autocorr
                     }]
