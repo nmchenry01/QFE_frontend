@@ -79,7 +79,7 @@
                 } else if (response.data.is_valid == false && response.data.is_date_diff_error == true) {
                     swal({
                         title: 'Error!',
-                        text: "Please enter a date range greater than 4 trading days",
+                        text: "Please enter a date range greater than a month!",
                         type: 'error',
                         allowOutsideClick: false
                     }).then(function (result) {
