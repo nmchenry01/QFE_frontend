@@ -363,12 +363,15 @@
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: [0,.05,.1,.15,.2],
+                        categories: daily_bins,
                         title: {
                             text: 'Percent Return'
                         }
                     },
                     yAxis: {
+                        min: 0,
+                        max: .25,
+                        tickInterval: .05,
                         title: {
                             text: 'Frequency'
                         }
@@ -397,6 +400,9 @@
                         },
                     },
                     yAxis: {
+                        min: 0,
+                        max: .25,
+                        tickInterval: .05,
                         title: {
                             text: 'Frequency'
                         }
@@ -425,6 +431,9 @@
                         },
                     },
                     yAxis: {
+                        min: 0,
+                        max: .25,
+                        tickInterval: .05,
                         title: {
                             text: 'Frequency'
                         }
