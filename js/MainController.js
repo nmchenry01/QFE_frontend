@@ -363,14 +363,14 @@
                     },
                     colors: ['#4BA2EA', '#CBCBCB', '#266FAD'],
                     xAxis: {
-                        categories: daily_bins,
+                        categories: [0,.05,.1,.15,.2],
                         title: {
                             text: 'Percent Return'
                         }
                     },
                     yAxis: {
                         title: {
-                            text: 'Count'
+                            text: 'Frequency'
                         }
                     },
                     credits: {
@@ -398,7 +398,7 @@
                     },
                     yAxis: {
                         title: {
-                            text: 'Count'
+                            text: 'Frequency'
                         }
                     },
                     credits: {
@@ -426,7 +426,7 @@
                     },
                     yAxis: {
                         title: {
-                            text: 'Count'
+                            text: 'Frequency'
                         }
                     },
                     credits: {
