@@ -371,7 +371,7 @@
                     yAxis: {
                         min: 0,
                         max: .2,
-                        tickInterval: .025,
+                        tickInterval: .05,
                         title: {
                             text: 'Frequency'
                         }
@@ -402,7 +402,7 @@
                     yAxis: {
                         min: 0,
                         max: .2,
-                        tickInterval: .025,
+                        tickInterval: .05,
                         title: {
                             text: 'Frequency'
                         }
@@ -433,7 +433,7 @@
                     yAxis: {
                         min: 0,
                         max: .2,
-                        tickInterval: .025,
+                        tickInterval: .05,
                         title: {
                             text: 'Frequency'
                         }
