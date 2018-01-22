@@ -314,7 +314,7 @@
                 }
 
                 //Pops the last value if erroneous
-                if (((daily_autocorr[daily_autocorr.length - 1]) == 1) || ((daily_autocorr[daily_autocorr.length - 1]) == -1)) {
+                if (((daily_autocorr[daily_autocorr.length - 1]) == 1) || ((daily_autocorr[daily_autocorr.length - 1]) == -1) || ((1 - daily_autocorr[daily_autocorr.length - 1]) < .01) || ((1 + daily_autocorr[daily_autocorr.length - 1]) < .01)) {
                     daily_autocorr.pop();
                 }
 
@@ -332,7 +332,7 @@
                 }
 
                 //Pops the last value if erroneous
-                if (((weekly_autocorr[weekly_autocorr.length - 1]) == 1) || ((weekly_autocorr[weekly_autocorr.length - 1]) == -1)) {
+                if (((weekly_autocorr[weekly_autocorr.length - 1]) == 1) || ((weekly_autocorr[weekly_autocorr.length - 1]) == -1) || ((1 - weekly_autocorr[weekly_autocorr.length - 1]) < .01) || ((1 + weekly_autocorr[weekly_autocorr.length - 1]) < .01)) {
                     weekly_autocorr.pop();
                 }
 
@@ -350,7 +350,7 @@
                 }
 
                 //Pops the last value if erroneous
-                if (((monthly_autocorr[monthly_autocorr.length - 1]) == 1) || ((monthly_autocorr[monthly_autocorr.length - 1]) == -1)) {
+                if (((monthly_autocorr[monthly_autocorr.length - 1]) == 1) || ((monthly_autocorr[monthly_autocorr.length - 1]) == -1) || ((1 - monthly_autocorr[monthly_autocorr.length - 1]) < .01) || ((1 + monthly_autocorr[monthly_autocorr.length - 1]) < .01)) {
                     monthly_autocorr.pop();
                 }
 
