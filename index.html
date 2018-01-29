@@ -52,7 +52,7 @@
 <body ng-controller="MainController">
     <div class="header">
         <a href="http://qfe.web.unc.edu/">
-            <img id="QFE_text" src="images/QFE_pic.PNG"/>
+            <img id="QFE_text" src="images/QFE_pic.PNG" />
         </a>
         <a href="http://www.unc.edu/" target="_blank">
             <img id="uncImageSVG" src="images/UNC_logo_white.png" />
@@ -66,7 +66,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div id="searchBar" class="input-group">
-                    <input tabindex="1" type="text" class="form-control" placeholder="Search for asset..." uib-typeahead="name for name in asset | filter:$viewValue | limitTo:20" class="form-control" ng-model="selectedAsset"></input>
+                    <input tabindex="1" type="text" class="form-control" placeholder="Search for asset..." uib-typeahead="name for name in asset | filter:$viewValue | limitTo:20"
+                        class="form-control" ng-model="selectedAsset"></input>
                     <span class="input-group-btn">
                         <button id="searchBarButton" ng-click="searchAsset(selectedAsset, fromDate, toDate)" class="btn btn-default glyphicon glyphicon-search"
                             type="button"></button>
@@ -80,32 +81,20 @@
     <div class="wrapper">
         <!-- Injected Angular View -->
         <div class="viewContainer">
-           <button type="button" id="printButton" onclick="window.print();" class="btn btn-default glyphicon glyphicon-print" title="Print Page"></button>
+            <button type="button" id="printButton" onclick="window.print();" class="btn btn-default glyphicon glyphicon-print" title="Print Page"></button>
 
             <div id="myOverlay"></div>
             <div class="loader" ng-show="loading"></div>
             <div ui-view ng-hide="loading"></div>
             <div id="bottomBox" ng-hide="loading">
-                <p class="text-center" id="footerTextTop" style="margin-top: 40px;"> The table above depicts summary statistics for log returns based upon daily adjusted closing prices taken from Quandl. </p>
-                <p class="text-center" id="footerTextTop"> The date ranges are chosen to capture holding period returns. For example, a date range of 9/1/2017 through 11/3/2017 </p>
-                <p class="text-center" id="footerTextTop"> uses the daily adjusted closing price on 10/31/2017 as a base to compute the daily log return on 9/1/2017. </p>
-                <p class="text-center" id="footerTextTop">If a starting or ending date is a market closure, the prior available trading day is used as a substitute. </p>
-                <p class="text-center" id="footerTextTop">When computing monthly returns, the calendar month associated with the starting and ending dates is used. </p>
-                <p class="text-center" id="footerTextTop">For example, a date range of 9/1/2017 through 11/3/2017 would generate a holding period from the last trading day of October 2017 through the last trading day of November 2017. </p>
-                <p class="text-center" id="footerTextTop">When computing weekly returns, the last trading day of the calendar week in which the starting and ending dates fall is used. For example, a starting date of 10/5/2017 and ending date of 11/16/2017 would use the 10/6/2017 and 11/16/2017 adjusted closing prices. </p>
-                <p class="text-center" id="footerTextTop">If the start and end dates are less than one week (month) apart, a 0% weekly (monthly) return is reported. </p>
-                <p class="text-center" id="footerTextTop">Universe: The Return Sample Statistics App currently covers about XX% of US listed equities. </p>
+                <p class="text-center" id="footerTextTop" style="margin-top: 40px;"> <a href="http://qfereadme-nmchenry.cloudapps.unc.edu" target="_blank">For user instructions and legal details click here</a></p>
             </div>
         </div>
     </div>
 
 </body>
 <footer>
-     <p class="text-center" id="footerTextBottom">Information is provided "as is" and solely for informational purposes, not for trading purporse or advice.</p>
-     <p class="text-center" id="footerText2">Additional Provisions (This hyperlinks to a page with disclaimers that mimics those found at the link below)</p>
-     <p class="text-center" id="footerText3">Please replace references of Volatility Laboratory to QFE and references to NYU to UNC Chapel Hill Economics Department</p>
-     <p class="text-center" id="footerText4">https://vlab.stern.nyu.edu/help/legal_provisions_en.html.php</p>
-
+    <p class="text-center" id="footerTextBottom">Developed by Nicholas McHenry and Douglas Hoezel, UNC-Chapel Hill 2018</p>
 </footer>
 
 
